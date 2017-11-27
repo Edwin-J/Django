@@ -1,0 +1,186 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자기소개</title>
+<style type="text/css">
+@font-face{
+	font-family: "NanumBrush";
+	src : url("{% static 'firstapp/font/NanumBrush.eot' %}"); /* IE */
+	src:local('☺'),
+	url("{% static 'firstapp/font/NanumBrush.woff' %}") format("woff"), /* FF, CH */
+    url("{% static 'firstapp/font/NanumBrush.ttf' %}") format("truetype"); /* FF, CH, SF, OP */
+}
+
+body{
+   background-image: url("{% static 'firstapp/img/back.png' %}"); /* 백그라운드 이미지를 지정 */
+   margin: 0;                           /* 바깥쪽 여백을 없앰 */
+   padding: 0;                          /* 안쪽 여백을 없앰 */
+   font-size: 0.75em;                   /* 글꼴 크기 */
+   line-height: 1.2em;                  /* 줄 간격 */
+   color: #333;                         /* 글꼴 색상 */
+   font-family: NanumBrush, 'Trebuchet MS', Verdana, Geneva, sans_serif;
+}
+
+#wrap{
+   /* 1024 × 768 해상도에 맞추어 웹 페이지 크기 지정*/
+   width : 971px;
+   /* 백그라운드 이미지 적용 */
+   background-image: url("{% static 'firstapp/img/shadow.png' %}");
+   background-repeat: repeat-y;
+   /* 중앙에 배치 */
+   margin: 0;
+   margin-right: auto;
+   margin-left: auto;
+   text-align: left;               /*텍스트를 왼쪽에 배치*/
+   /* 페이지에 출력할 내용이 없어도 최소 높이는 780px */
+   min-height: 780px;
+}
+
+#title h1, #title h2{
+   display: none;                   /*헤드라인 숨김 */
+}
+
+#ceil{                              /* 웹 페이지를 상단에 이미지 출력 */
+   width: 952px;
+   height: 60px;
+   margin: 0 0 0 10px;
+   background-image: url("{% static 'firstapp/img/ceil.png' %}");
+   background-repeat: repeat-x;    /*  가로 방향으로 반복 */
+}
+
+#logo{                             /*  로고 이미지  */
+   float: left;                    /* 화면 왼쪽에 배치 */
+   width: 256px;
+   height: 100px;
+   margin: 20px 0 0 40px;
+}
+
+/*리스트로 메인 메뉴 만들기*/
+nav#top_menu{
+   float: left;
+   width: 600px;
+   margin-top: 20px;
+}
+
+nav#top_menu ul{
+   list-style-type: none;
+   font-size: 24px;
+   font-weight: bold;
+}
+
+nav#top_menu ul li{
+   float: left;
+   margin: 0 15px;
+}
+
+nav#top_menu a{
+   text-decoration: none;
+   color: #333;
+   display: block;
+   height: 20px;
+}
+
+nav#top_menu a:HOVER{
+   color: #FFB6C1;
+   font-size: 25px;
+}
+
+.clear{
+   clear: both;
+}
+
+/* 콘덴츠 설정하기 */
+#sub_section {
+	float: right;
+	width: 650px;
+	padding-right: 30px;
+}
+
+#sub_section h1{
+	padding-left: 60px;
+	font-size: 50px;
+	color: #FFB6C1;
+	text-shadow:1px 1px 3px #000;
+}
+
+#sub_section h1:HOVER{
+	color: #CCC;
+}
+
+@font-face{
+	font-family: ROCK;
+	src: url("{% static 'firstapp/font/ROCK.TTF' %}");
+}
+
+#sub_section article p{
+	font-family: ROCK, 'Trebuchet MS', Veridana, Geneva, sans_serif;
+	font-size: 1.2em;
+	line-height: 1.5em;
+}
+
+/* 푸터 */
+footer{
+	margin: 50px 0 0 0;
+	height: 80px;
+	background-image: url("{% static 'firstapp/img/footer_logo.PNG' %}");
+	background-repeat: no-repeat;
+	background-position: 40px center;
+}
+
+footer hr{
+	width: 900px;
+	margin: 0 0 0 10px;
+}
+
+footer #copyright{
+	font-family: NanumBrush, 'Trebuchet MS',Veridana, Geneva, sans_serif;
+	font-size: 18px;
+	width: 560px;
+	margin: 20px 0 0 320px;
+	float: left;
+}
+
+</style>
+</head>
+
+<body>
+<div id="wrap">
+	<header id="sub_header">
+	    <div id="ceil"></div>
+		<div id="logo">
+			<a href="main.html"><img id="#" src="{% static 'firstapp/img/logo.PNG'%}" width="240" height="80"></a>
+		</div>
+
+
+
+		<nav id="top_menu">
+			<ul>
+				<li><a href="main.html">HOME</a></li>
+				<li><a href="introduce.html">자기소개</a></li>
+				<li><a href="study.html">연구활동</a></li>
+			</ul>
+		</nav>
+	</header>
+	<div class="clear"></div>
+
+
+	<section id="sub_section">
+{% block content %}
+{% endblock %}
+	</section>
+
+	<div class="clear"></div>
+
+	<footer>
+		<hr>
+        <div id="copyright">
+		Copyright COPYRIGHT(C) SUNRIN INTERNET HIGHSCHOOL. ALL RIGHT RESERVED<br>
+        [04314]서울 용산구 원효로97길 33-4 (청파동3가, 선린인터넷고등학교)
+		(대표전화) 02-713-6211 (팩스) 02-704-0960
+        </div>
+	</footer>
+</div>
+</body>
+</html>
